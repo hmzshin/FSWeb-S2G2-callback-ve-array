@@ -23,16 +23,9 @@ const { fifaData } = require("./fifa.js");
 	💡 İPUCU - verilen data içindeki nesnelerin(objects) "Stage" anahtarına bakmalısınız
 */
 
-// function Finaller(arr) {
-//   return arr.filter((arrObje) => arrObje["Stage"] === "Final");
-// }
-
-// console.log("görev2:", Finaller(fifaData)[0]);
-function Finaller(fifaData) {
-  const finalMatches = fifaData.filter((match) => match.Stage === "Final");
-  return finalMatches;
+function Finaller(arr) {
+  return arr.filter((arrObje) => arrObje.Stage === "Final");
 }
-console.log("Görev 2: ", Finaller(fifaData));
 
 /*  Görev 3: 
 	Bir higher-order fonksiyonu olan Yillar isimli fonksiyona aşağıdakileri uygulayın: 
@@ -47,11 +40,6 @@ function Yillar(arr, fonksiyonFinaller) {
   return yillar;
 }
 console.log("Görev3 :", Yillar(fifaData, Finaller));
-
-// Kendime Notlar :Görev Üç te dizi uzunluğu aynı kaldığı ve dizinin her bir indexi için işlem yaptığımızdan dolayı .map() fonksiyonunu kullandık.
-// Kendime Notlar :map fonksiyonu bizim for döngüsü ile yapacağımız işlemi yapıyor. bu şekilde düşünüp sanki for döngüsü içerisine yazıyormuş gibi kodlarımız yazmamız gerekiyor.
-
-// console.log(Yillar(fifaData, Finaller));
 
 /*  Görev 4: 
 	Bir higher-order fonksiyonunu olan Kazananlar isimli fonksiyona aşağıdakileri uygulayın:  
@@ -75,7 +63,7 @@ function Kazananlar(arr, fonksiyonFinaller) {
 
   return winners;
 }
-console.log("Görev4: ", Kazananlar(fifaData, Finaller));
+
 /*  Görev 5: 
 	Bir higher-order fonksiyonu olan YillaraGoreKazananlar isimli fonksiyona aşağıdakileri uygulayın:
 	1. fifaData dizisini(array) fonksiyonunun birinci parametresi olarak alacak
@@ -107,11 +95,6 @@ function YillaraGoreKazananlar(
   return ekranaYazdır;
 }
 
-console.log(
-  "görev5 :",
-  YillaraGoreKazananlar(fifaData, Finaller, Yillar, Kazananlar)
-);
-
 /*  Görev 6: 
 	Bir higher order fonksiyonu olan `OrtalamaGolSayisi` isimli fonksiyona aşağıdakileri uygulayın: 
 	1. Görev 2'de yazdığınız `Finaller` fonksiyonunu birinci parametre olarak alacak; 'fifaData' dizisini argüman olarak eklediğinizden emin olun
@@ -135,8 +118,6 @@ function OrtalamaGolSayisi(fonksiyonFinaller) {
   const ortalama = (genelToplam / finaller.length).toFixed(2);
   return ortalama;
 }
-
-// console.log("görev6: ", OrtalamaGolSayisi(Finaller(fifaData)));
 
 /// EKSTRA ÇALIŞMALAR ///
 
